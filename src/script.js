@@ -51,13 +51,59 @@ function tocelsius(event) {
 let celsius = document.querySelector("#celsius-link");
 celsius.addEventListener("click", tocelsius);
 
+function showCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#change-city").value;
+  let apiKey = "e5bb208507c0c4c97d696df0a3444983";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+  console.log(apiUrl);
+  let h1 = document.querySelector("h1");
+  h1.innerHTML = `${city}`;
+}
+let searchForm = document.querySelector("#city-form");
+searchForm.addEventListener("submit", showCity);
+
 function showTemp(response) {
-  console.log(response.data);
-  console.log(response.data.main.temp);
-  let temperature = Math.round(response.data.main.temp);
-  let weather = document.querySelector("#display");
-  weather.innerHTML = `${temperature}℃`;
+  let temperature = document.querySelector("#temperature");
+  let currentTemp = Math.round(response.data.main.temp);
+  temperature.innerHTML = `${currentTemp}`;
+  let currentHumidity = response.data.main.humidity;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = `${currentHumidity}%`;
+  let wind = document.querySelector("#wind");
+  let currentWind = Math.round(response.data.wind.speed);
+  wind.innerHTML = `Wind: ${currentWind} km/h`;
+}
+//Bonus homework
+
+function showCoord(position) {
+  console.log(position);
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "e5bb208507c0c4c97d696df0a3444983";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  console.log(apiUrl);
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
+}
+function getPosition(position) {
+  navigator.geolocation.getCurrentPosition(showCoord);
 }
 
-let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
-axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+function displayTemp(response) {
+  console.log(response.data);
+  let temp = document.querySelector("#temperature");
+  temp.innerHTML = Math.round(response.data.main.temp);
+  let currentPlace = response.data.name;
+  let h1 = document.querySelector("h1");
+  h1.innerHTML = `${currentPlace}`;
+  let currentHumidity = response.data.main.humidity;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = `${currentHumidity}%`;
+  let wind = document.querySelector("#wind");
+  let currentWind = Math.round(response.data.wind.speed);
+  wind.innerHTML = `${currentWind}km/h`;
+}
+
+let currentLocation = document.querySelector("button");
+currentLocation.addEventListener("click", getPosition);
