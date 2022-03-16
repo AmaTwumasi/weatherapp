@@ -1,58 +1,75 @@
 body {
-  background-color: #66c2ff;
+  font-family: arial, sans-serif;
+  display:block;
+  margin:20px;
 }
-#city-element {
-  color: rgb(72, 151, 151);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  position: relative;
-  left: 50px;
-  top: 30px;
-  font-size: 30px;
+#city,.new-day {
+  font-size: 20px;
+  opacity: 0.7;
 }
-
-.new-day {
-  color: rgb(0, 0, 0);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  position: relative;
-  left: 300px;
-  top: 10px;
-  font-size: 15px;
+.weather-app {
+  max-width: 600px;
+  border: solid 1px rgb(125, 201, 54);
+  border-radius: 5px;
+  
+  margin-top: 0 auto;
+  padding: 15px;
 }
-input {
-  caret-color: red;
+#change-city {
+   border-radius: 2px;
+  border:        none;
+  box-shadow:    0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  height:        40px;
+  outline:       0;
+  width:         300px
 }
-.container {
-  width: 900px;
-  position: absolute;
-  border: solid 3px white;
-  border-radius: 25px;
-  background: linear-gradient(-45deg, #7e3a26 10%, #dfeff8 50%);
-  margin: 80px auto;
-  padding: 30px;
+#search{
+  border-radius: 2px;
+  border:        none;
+  color: rgb(255, 255, 255);
+  height: 42px;
+  background-color: rgb(123, 139, 53);
 }
 button {
-  background-color: rgb(49, 73, 179);
+  background-color: rgb(74, 101, 223);
   position: relative;
-  top: 40px;
-  left: 400px;
+  left: 390px;
+  bottom: 12px;
   border-radius: 3px;
-  border: 1px, solid;
+  border: none;
   color: #fff;
-  opacity: 0.5;
+height: 42px;
 }
 button:hover {
-  background-color: #417fa8;
-  color: rgb(255, 255, 255);
+  background-color: #ffffff;
+  color: rgb(25, 68, 185);
   font-weight: bold;
   transition: all 200ms ease-in-out;
   cursor: pointer;
 }
 #city-form {
   position: relative;
-  left: 400px;
   top: 30px;
 }
 
+#temperature{
+  font-size: 50px;
+  
+}
+.units {
+  position: relative;
+  top: -25px;
+  text-decoration: none;
+  font-size:   16px;
+  line-height: 1.5
+}
+ul{
+  list-style: none;
+ position: relative;
+  left: 250px;
+  bottom: 80px;
+  opacity: 0.7;
+}
 .form-control {
   position: relative;
   top: 100px;
@@ -60,10 +77,23 @@ button:hover {
   margin: 0px;
   text-align: center;
 }
-
+#description{
+  text-transform: capitalize;
+}
 .float-left {
   color: rgb(0, 0, 0);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: relative;
   font-size: 15px;
+}
+#weekdays {
+  margin-top: 30px;
+  opacity: 0.7;
+  font-weight: 100;
+ position: relative;
+ bottom: 70px; 
+}
+small {
+  position: relative;
+  left: 120px;
 }
