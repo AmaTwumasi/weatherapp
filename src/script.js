@@ -22,11 +22,16 @@ function showTemp(response) {
   humidity.innerHTML = `${currentHumidity}%`;
   let wind = document.querySelector("#wind");
   let currentWind = Math.round(response.data.wind.speed);
-  wind.innerHTML = `Wind: ${currentWind} km/h`;
+  wind.innerHTML = `${currentWind} km/h`;
   let currentDescription = response.data.weather[0].description;
   description.innerHTML = `${currentDescription}`;
   let currentIcon = document.querySelector("#icon");
- 
+ currentIcon.setAttribute(
+   "src",
+   `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+ );
+ currentIcon.setAttribute("alt", response.data.weather[0].icon);
+ celsiusTemp = response.data.main.temp;
 }
 
 
@@ -123,7 +128,7 @@ function converttocelsius(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
  
-
+let celsiusTemp="null"
 let form = document.querySelector("#city-form");
 form.addEventListener("submit", city);
 
