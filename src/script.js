@@ -113,6 +113,7 @@ let forcast = document.querySelector("#weekdays")
 let forcastHTML = `<div class="row align-items-start">`;
 let days = [
   "Sunday",
+  "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
