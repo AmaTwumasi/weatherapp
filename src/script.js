@@ -61,6 +61,7 @@ function displayTemp(response) {
       response.data.weather[0].icon
     );
      celsiusTemp = response.data.main.temp;
+     forcastTemp();
 }
 let currentLocation = document.querySelector("button");
 currentLocation.addEventListener("click", getPosition);
@@ -105,6 +106,33 @@ let days = [
 let day = days[currentDate.getDay()];
 
 date.innerHTML = `${day} ${hour}:${minutes}`;
+
+function forcastTemp () {
+
+let forcast = document.querySelector("#weekdays")
+let forcastHTML = `<div class="row align-items-start">`;
+let days = [
+  "Sunday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  
+];
+days.forEach (function(days) {
+  forcastHTML = forcastHTML + 
+`<div class="col">
+            <strong>${days}</strong>
+            <br />
+            <p>30°C</p>
+            Sunny ⛅
+          </div>`;
+
+})
+
+    forcastHTML = forcastHTML + `</div>`;    
+forcast.innerHTML = forcastHTML
+}
 
 //feature 2
 function city(event) {
