@@ -6,12 +6,20 @@ function showCity(event) {
   let apiKey = "e5bb208507c0c4c97d696df0a3444983";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
-  console.log(apiUrl);
+ 
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${city}`;
 }
 let searchForm = document.querySelector("#city-form");
 searchForm.addEventListener("submit", showCity);
+
+function getForcast (coordinates) {
+  console.log(coordinates);
+let apiKey = "e5bb208507c0c4c97d696df0a3444983";
+let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+console.log(apiUrl);
+axios.get(apiUrl).then(forcastTemp);
+}
 
 function showTemp(response) {
   let temperature = document.querySelector("#temperature");
@@ -32,11 +40,13 @@ function showTemp(response) {
  );
  currentIcon.setAttribute("alt", response.data.weather[0].icon);
  celsiusTemp = response.data.main.temp;
+ getForcast(response.data.coord);
+
 }
 
 
 function displayTemp(response) {
-  console.log(response.data);
+ 
   let temp = document.querySelector("#temperature");
   temp.innerHTML = Math.round(response.data.main.temp);
   let currentPlace = response.data.name;
@@ -62,6 +72,7 @@ function displayTemp(response) {
     );
      celsiusTemp = response.data.main.temp;
      forcastTemp();
+     getForcast(response.data.coord);
 }
 let currentLocation = document.querySelector("button");
 currentLocation.addEventListener("click", getPosition);
@@ -69,12 +80,12 @@ currentLocation.addEventListener("click", getPosition);
 //Bonus homework
 
 function showCoord(position) {
-  console.log(position);
+
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "e5bb208507c0c4c97d696df0a3444983";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  console.log(apiUrl);
+ 
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
 }
 function getPosition(position) {
@@ -107,8 +118,9 @@ let day = days[currentDate.getDay()];
 
 date.innerHTML = `${day} ${hour}:${minutes}`;
 
-function forcastTemp () {
 
+function forcastTemp (response) {
+console.log(response.data.daily);
 let forcast = document.querySelector("#weekdays")
 let forcastHTML = `<div class="row align-items-start">`;
 let days = [
@@ -144,7 +156,7 @@ function city(event) {
 }
 function converttofarenheit(event) {
   event.preventDefault();
-  console.log(converttofarenheit);
+ 
   let temperatureElement = document.querySelector("#temperature")
   let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
 
@@ -152,7 +164,7 @@ function converttofarenheit(event) {
 }
 function converttocelsius(event) {
   event.preventDefault();
-  console.log(converttocelsius);
+ 
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
