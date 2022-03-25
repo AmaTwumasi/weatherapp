@@ -64,22 +64,7 @@ function displayTemp(response) {
   forcastTemp();
   getForcast(response.data.coord);
 }
-let currentLocation = document.querySelector("button");
-currentLocation.addEventListener("click", getPosition);
 
-
-
-function showCoord(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiKey = "e5bb208507c0c4c97d696df0a3444983";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
-}
-function getPosition(position) {
-  navigator.geolocation.getCurrentPosition(showCoord);
-}
 
 
 let currentDate = new Date();

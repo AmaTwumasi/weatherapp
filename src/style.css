@@ -4,6 +4,8 @@ body {
   margin:20px;
 }
 #city,.new-day {
+  position: relative;
+  top: 35px;
   font-size: 20px;
   opacity: 0.7;
 }
@@ -21,7 +23,7 @@ body {
   box-shadow:    0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   height:        40px;
   outline:       0;
-  width:         300px
+  width:         350px
 }
 #search{
   border-radius: 2px;
@@ -30,17 +32,8 @@ body {
   height: 42px;
   background-color: rgb(123, 139, 53);
 }
-button {
-  background-color: rgb(74, 101, 223);
-  position: relative;
-  left: 390px;
-  bottom: 12px;
-  border-radius: 3px;
-  border: none;
-  color: #fff;
-height: 42px;
-}
-button:hover {
+
+#search:hover {
   background-color: #ffffff;
   color: rgb(25, 68, 185);
   font-weight: bold;
@@ -53,12 +46,14 @@ button:hover {
 }
 
 #temperature{
+   position: relative;
+   top: 40px;
   font-size: 50px;
   
 }
 .units {
   position: relative;
-  top: -25px;
+  top: 14px;
 }
 .units a {
   text-decoration: none;
@@ -69,23 +64,20 @@ ul{
   list-style: none;
  position: relative;
   left: 250px;
-  bottom: 80px;
+  bottom: 50px;
   opacity: 0.7;
 }
-.form-control {
-  position: relative;
-  top: 100px;
-  left: 250px;
-  margin: 0px;
-  text-align: center;
-}
+
 #description{
+  position: relative;
+  top: 35px;
   text-transform: capitalize;
 }
 .float-left {
   color: rgb(0, 0, 0);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: relative;
+  top:20px;
   font-size: 15px;
 }
 #weekdays {
@@ -93,7 +85,7 @@ ul{
   opacity: 0.7;
   font-weight: 100;
  position: relative;
- bottom: 70px; 
+ bottom: 30px; 
 }
 small {
   position: relative;
