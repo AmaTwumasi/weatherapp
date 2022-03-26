@@ -116,7 +116,7 @@ function forcastTemp(response) {
     if (index < 6) {
       forcastHTML =
         forcastHTML +
-        `<div class="col">
+        `<div class="col-sm-2">
             <div class="forcast-weather-date">${formateDay(forcastDay.dt)}</div>
             <img
             src = "http://openweathermap.org/img/wn/${
