@@ -19,9 +19,8 @@ body {
 }
 #change-city {
    border-radius: 2px;
-   background-color: #1c82b1;
-  border:        none;
-  box-shadow:    0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+   background-color: #ffffff;
+  border-radius: 10px;
   height:        40px;
   outline:       0;
   width:         350px
@@ -91,4 +90,35 @@ ul{
 small {
   position: relative;
   left: 120px;
+}
+
+@media (max-width: 500px) {
+  /* For mobile phones: */
+ #change-city {
+  width: 200px;
+ }
+  .weather-app {
+    opacity: 1;
+ }
+  ul {
+  position: relative;
+  left: 180px;
+  color:rgb(25, 68, 185);
+  opacity: 1;
+ }
+#city,.new-day {
+ color: rgb(34, 63, 6);
+ opacity: 1;
+ }
+ #description {
+  font-size: 20px;
+  color:rgb(25, 68, 185);
+ }
+ #weekdays {
+width: 20%;
+ }
+  small {
+    position: relative;
+    left: 30px;
+  }
 }

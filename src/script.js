@@ -99,7 +99,7 @@ function formateDay(timestamp) {
     "Sunday",
     "Monday",
     "Tuesday",
-    "Wednesday",
+    "Wed",
     "Thursday",
     "Friday",
     "Saturday",
